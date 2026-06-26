@@ -1,7 +1,8 @@
 export const APP_TITLE = 'Linkwarden';
 
 export const DARK_COLORS = {
-  '--color-text': 'white',
+  '--color-text': '#FAFAFA',
+  '--color-text-secondary': '#C0C0C0',
   '--color-background': '#0F1115',
 };
 

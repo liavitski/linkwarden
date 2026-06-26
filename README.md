@@ -2,6 +2,6 @@
 
 ## TODO
 
-- [ ] Make it deploy
+- [x] Make it deploy
 - [ ] Scaffold basic ui
 

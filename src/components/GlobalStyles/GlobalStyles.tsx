@@ -54,7 +54,7 @@ h6 {
 
 /* THEME VARIABLES */
 html {
-  --content-width: 90rem;
+  --content-width: 100rem;
   --viewport-padding: 0px 16px 0;
   --header-height: 5rem;
   --min-tap-target-height: 32px;
@@ -73,7 +73,7 @@ html {
 html {
   color: var(--color-text);
   font-family: var(--font-family), sans-serif;
-  letter-spacing: -0, 025em;
+  letter-spacing: -0.025em;
   background-color: var(--color-background);
 }
 

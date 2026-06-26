@@ -1,17 +1,14 @@
-import Logo from '@/components/Logo';
-import Image from 'next/image';
 import styled from 'styled-components';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
     <main>
-      <Header>
-        <Logo />
-      </Header>
+      <Header />
+      <Hero />
     </main>
   );
 }
 
-const Header = styled.header`
-  color: red;
-`;
+
