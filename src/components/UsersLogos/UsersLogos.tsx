@@ -57,6 +57,7 @@ const slideAnimation = keyframes`
 const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
+  width: 100%;
   max-width: 1600px;
 
   &::before,
