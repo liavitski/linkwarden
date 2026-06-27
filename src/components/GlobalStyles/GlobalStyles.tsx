@@ -55,7 +55,7 @@ h6 {
 html {
   --content-width: 100rem;
   --viewport-padding: 0px 16px 0;
-  --header-height: 5rem;
+  --header-height: 6rem;
   --min-tap-target-height: 32px;
   --min-tap-target-width: 32px;
 }

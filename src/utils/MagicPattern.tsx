@@ -6,7 +6,7 @@ const MagicPatternSvg = () => {
     <Svg
       width="1420"
       height="1288"
-      viewBox="0 0 1920 1688"
+      viewBox="0 0 1920 1740"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

@@ -27,13 +27,18 @@ const Btn = styled.button`
   align-items: center;
   font-weight: ${WEIGHTS.medium};
   font-size: 1.5rem;
-
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.317);
+  
   &:focus {
     outline-offset: 2px;
   }
 
   &:focus:not(:focus-visible) {
     outline: none;
+  }
+
+  &:hover {
+    color: var(--color-text-hover);
   }
 `;
 

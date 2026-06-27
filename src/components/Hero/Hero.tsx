@@ -48,6 +48,7 @@ const Wrapper = styled.section`
   align-items: center;
   margin: 0 auto;
   position: relative;
+  margin-bottom: 80px;
 `;
 
 const Heading = styled.h1`
@@ -56,17 +57,19 @@ const Heading = styled.h1`
   text-align: center;
   max-width: 1250px;
   line-height: 1.4;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 `;
 
 const SubHeading = styled.h2`
   max-width: 1000px;
   text-align: center;
+  margin-bottom: 3rem;
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 40px;
+  margin-bottom: 3rem;
 `;
 
 const StartFreeTrialBtn = styled(CtaButton)`
@@ -79,6 +82,7 @@ const StarUsOnGitHubBtn = styled(CtaButton)`
   -webkit-backdrop-filter: blur(12px);
   display: flex;
   gap: 8px;
+  border: 2px solid var(--color-button-ghost-border);
 `;
 
 const DesctopText = styled.span`
