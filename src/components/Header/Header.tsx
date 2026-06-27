@@ -3,6 +3,7 @@ import Logo from '../Logo';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { WEIGHTS } from '@/utils/constants';
+import Button from '../Button';
 
 function Header() {
   return (
@@ -27,7 +28,7 @@ function Header() {
           </ListItem>
         </ListWrapper>
       </nav>
-      <button>Login</button>
+      <Button variant='ghost' size='large'>Login</Button>
     </Wrapper>
   );
 }
@@ -54,6 +55,7 @@ const ListItem = styled.li`
     color: var(--color-text-secondary);
     text-decoration: none;
     font-weight: ${WEIGHTS.normal};
+    font-size: 1.5rem;
   }
 `;
 

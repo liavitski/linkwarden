@@ -37,7 +37,6 @@ svg {
   height: auto;
 }
 input,
-button,
 textarea,
 select {
   font: inherit;
@@ -90,12 +89,6 @@ p {
   font-size: 1.25rem;
   font-weight: ${WEIGHTS.normal};
 }
-
-button {
-  padding: 0;
-}
-
-
 `;
 
 export default GlobalStyles;

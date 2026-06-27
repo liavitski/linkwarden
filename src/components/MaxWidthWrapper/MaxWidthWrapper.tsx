@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const MaxWidthWrapper = styled.div`
   width: 100%;
-  max-width: var(--content-width);
+  /* max-width: var(--content-width); */
   padding: var(--viewport-padding);
   margin: 0 auto;
 `;

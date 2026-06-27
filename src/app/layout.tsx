@@ -24,9 +24,7 @@ export default function RootLayout({
     >
       <body>
         <StyledComponentsRegistry>
-          <MaxWidthWrapper>
-            {children}
-            </MaxWidthWrapper>  
+          <MaxWidthWrapper>{children}</MaxWidthWrapper>
         </StyledComponentsRegistry>
         <GlobalStyles />
       </body>
