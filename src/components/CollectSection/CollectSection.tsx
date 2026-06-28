@@ -47,6 +47,7 @@ const Section = styled.section`
   max-width: 1650px;
   margin: 0 auto;
   gap: 72px;
+  margin-bottom: 23rem;
 `;
 
 const CollectBtn = styled(CtaButton)`

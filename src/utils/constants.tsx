@@ -1,3 +1,5 @@
+import type { IconName } from '@/components/MoreSection/icons';
+
 export const APP_TITLE = 'Linkwarden';
 
 export const DARK_COLORS = {
@@ -34,3 +36,4 @@ export const QUERIES = {
   tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet / 16}rem)`,
   laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop / 16}rem)`,
 };
+
