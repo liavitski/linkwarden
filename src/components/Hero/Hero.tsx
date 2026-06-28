@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { WEIGHTS } from '@/utils/constants';
-import { MagicPatternSvg } from '@/utils/MagicPattern';
+import MagicPatternSvg from '@/utils/MagicPattern';
 import Star from '@/utils/StarSvg';
 import CtaButton from '../CtaButton';
 

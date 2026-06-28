@@ -1,35 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MagicPatternSvg = () => {
+const MagicPatternSvg2 = () => {
   const uid = React.useId();
 
   const id = (name: string) => `${name}${uid}`;
   const url = (name: string) => `url(#${id(name)})`;
 
   return (
-    <Svg
+    <Svg2
       width="1420"
       height="1288"
-      viewBox="0 0 1920 1740"
+      viewBox="100 0 1920 1740"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath={`url(#${id('clip0')})`}>
         <rect
-          width="2414"
+          width="2214"
           height="1688"
-          transform="translate(-224)"
+          transform="translate(164, 150)"
           fill={url('paint0_radial')}
         />
         <mask
           id={id('mask0')}
           style={{ maskType: 'luminance' }}
           maskUnits="userSpaceOnUse"
-          x="-224"
-          y="0"
-          width="2414"
-          height="1688"
+          x="124"
+          y="400"
+          width="814"
+          height="888"
         >
           <path
             d="M2190 0H-224V1688H2190V0Z"
@@ -946,10 +946,16 @@ const MagicPatternSvg = () => {
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(1207 844) rotate(90) scale(844 1207)"
+          gradientTransform="translate(350 444) rotate(90) scale(700 1000)"
         >
-          <stop stopColor="#289DF2" stopOpacity="0.4" />
-          <stop offset="1" stopColor="#6F30D8" stopOpacity="0" />
+          <stop offset="0" stopColor="#6F30D8" stopOpacity="0.22" />
+          <stop offset="0.4" stopColor="#6F30D8" stopOpacity="0.01" />
+          <stop
+            offset="0.75"
+            stopColor="#6F30D8"
+            stopOpacity="0.01"
+          />
+          <stop offset="1" stopColor="#6F30D8" stopOpacity="0.01" />
         </radialGradient>
         <radialGradient
           id={id('paint1_radial')}
@@ -957,28 +963,29 @@ const MagicPatternSvg = () => {
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(983 844) scale(1207 844)"
+          gradientTransform="translate(0 544) scale(1007 544)"
         >
           <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop offset="1" stopColor="white" stopOpacity="0.04" />
         </radialGradient>
         <clipPath id={id('clip0')}>
           <rect
-            width="2414"
-            height="1688"
+            width="1414"
+            height="1088"
             fill="white"
             transform="translate(-224)"
           />
         </clipPath>
       </defs>
-    </Svg>
+    </Svg2>
   );
 };
 
-const Svg = styled.svg`
+const Svg2 = styled.svg`
   position: absolute;
   z-index: -1;
+  left: -100px;
   overflow: visible;
 `;
 
-export default MagicPatternSvg;
+export default MagicPatternSvg2;

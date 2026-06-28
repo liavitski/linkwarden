@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import CtaButton from '../CtaButton';
 import { WEIGHTS } from '@/utils/constants';
 import Image from 'next/image';
-import { MagicPatternSvg2 } from '@/utils/MagicPattern';
+import MagicPatternSvg2 from '@/utils/MagicPattern2';
 
 function CollectSection() {
   return (
