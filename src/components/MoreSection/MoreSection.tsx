@@ -33,6 +33,7 @@ function MoreSection() {
 const Wrapper = styled.section`
   max-width: 1600px;
   margin: 0 auto;
+  margin-bottom: 14rem;
 `;
 
 const Heading = styled.h2`
