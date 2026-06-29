@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { WEIGHTS } from '@/utils/constants';
 
 function Logo() {
   return (
@@ -15,16 +14,21 @@ const LinkWrapper = styled(Link)`
   display: block;
   color: var(--text-color);
   text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: ${WEIGHTS.bold};
-  letter-spacing: -0.5px;
 `;
 
-const LogoSvg = () => {
+type LogoSvgProps = {
+  width?: string;
+  height?: string;
+};
+
+export const LogoSvg = ({
+  width = '197',
+  height = '41',
+}: LogoSvgProps) => {
   return (
     <svg
-      width="197"
-      height="41"
+      width={width}
+      height={height}
       viewBox="0 0 197 41"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

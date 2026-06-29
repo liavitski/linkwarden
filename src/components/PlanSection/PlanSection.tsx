@@ -82,6 +82,7 @@ function PlanSection() {
 const Wrapper = styled.section`
   max-width: 1650px;
   margin: 0 auto;
+  margin-bottom: 25rem;
 `;
 
 const Header = styled.div`

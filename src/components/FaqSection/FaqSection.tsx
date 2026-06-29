@@ -4,11 +4,13 @@ import styled from 'styled-components';
 import { WEIGHTS } from '@/utils/constants';
 import { FAQ_DATA } from '@/utils/constants';
 import { ChevronDown } from 'react-feather';
+import FaqSvgPattern from './SvgPattern';
 
 function FaqSection() {
   return (
     <Wrapper>
       <Heading>Frequently Asked Questions</Heading>
+      <FaqSvgPattern />
       <Root type="single" collapsible>
         {FAQ_DATA.map(({ label, description }, index) => (
           <Item key={index} value={label}>
@@ -22,6 +24,12 @@ function FaqSection() {
           </Item>
         ))}
       </Root>
+      <Footer>
+        For any other questions, feel free to reach out to us at{' '}
+        <a href="mailto:support@linkwarden.app">
+          support@linkwarden.app
+        </a>
+      </Footer>
     </Wrapper>
   );
 }
@@ -29,6 +37,8 @@ function FaqSection() {
 const Wrapper = styled.section`
   max-width: 1485px;
   margin: 0 auto;
+  position: relative;
+  margin-bottom: 25rem;
 `;
 
 const Heading = styled.h2`
@@ -43,10 +53,16 @@ const Root = styled(Accordion.Root)`
   padding: 60px 80px;
   position: relative;
   border-radius: 16px;
-  background: transparent;
+  gap: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(160, 148, 148, 0.02) 0%,
+    rgba(95, 86, 86, 0.1) 100%
+  );
   box-shadow: 0 4px 12px rgba(160, 148, 148, 0.15);
   display: flex;
   flex-direction: column;
+  margin-bottom: 45px;
 
   &::before {
     content: '';
@@ -58,9 +74,9 @@ const Root = styled(Accordion.Root)`
 
     background: linear-gradient(
       90deg,
-      rgba(236, 200, 200, 0.1) 0%,
+      rgba(236, 200, 200, 0.2) 0%,
       rgba(0, 0, 0, 0.3) 44%,
-      rgba(255, 255, 255, 0.2) 100%
+      rgba(255, 255, 255, 0.15) 100%
     );
 
     -webkit-mask:
@@ -78,6 +94,7 @@ const Header = styled(Accordion.Header)``;
 const Trigger = styled(Accordion.Trigger)`
   display: flex;
   gap: 16px;
+  cursor: pointer;
   position: relative;
   font-size: 2.25rem;
   font-weight: ${WEIGHTS.medium};
@@ -111,6 +128,16 @@ const Content = styled(Accordion.Content)`
   padding: 16px 52px;
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.normal};
+`;
+
+const Footer = styled.p`
+  font-size: 2rem;
+  text-align: center;
+  font-weight: ${WEIGHTS.normal};
+
+  a {
+    color: inherit;
+  }
 `;
 
 export default FaqSection;

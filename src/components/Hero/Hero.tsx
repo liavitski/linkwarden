@@ -51,7 +51,7 @@ const Wrapper = styled.section`
   margin-bottom: 80px;
 `;
 
-const Heading = styled.h1`
+export const Heading = styled.h1`
   font-weight: ${WEIGHTS.bold};
   font-size: 5rem;
   text-align: center;
@@ -66,17 +66,17 @@ const SubHeading = styled.h2`
   margin-bottom: 3rem;
 `;
 
-const ButtonsWrapper = styled.div`
+export const ButtonsWrapper = styled.div`
   display: flex;
   gap: 40px;
   margin-bottom: 3rem;
 `;
 
-const StartFreeTrialBtn = styled(CtaButton)`
+export const StartFreeTrialBtn = styled(CtaButton)`
   background: linear-gradient(90deg, #673ab7 0%, #4b03cd 100%);
 `;
 
-const StarUsOnGitHubBtn = styled(CtaButton)`
+export const StarUsOnGitHubBtn = styled(CtaButton)`
   background: #00000031;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
