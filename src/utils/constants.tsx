@@ -1,4 +1,7 @@
-import type { IconName } from '@/components/MoreSection/icons';
+import { title } from 'process';
+
+import type { Variant } from '@/components/PlanCard';
+import { m } from 'motion/react';
 
 export const APP_TITLE = 'Linkwarden';
 
@@ -8,6 +11,12 @@ export const DARK_COLORS = {
   '--color-text-hover': '#E5E7EB',
   '--color-background': '#0F1115',
   '--color-button-ghost-border': '#828282',
+  '--color-button-ghost-border-darker': '#616161',
+
+  '--color-plan-buttons-border': '#43484B',
+  '--color-plan-buttons-tag-bg': '#F10000',
+  '--color-plan-button-active': '#4A46FC',
+  '--color-plan-subheading': '#79C5FC',
 };
 
 export const DARK_SHADOWS = {
@@ -37,3 +46,48 @@ export const QUERIES = {
   laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop / 16}rem)`,
 };
 
+type CardData = {
+  subtitle: string;
+  features: string[];
+  variant: Variant;
+};
+
+export const CARDS_DATA: CardData[] = [
+  {
+    subtitle: 'Self-Hosted',
+    features: [
+      'Hosted by yourself.',
+      'Unlimited Links.',
+      'Unlimited Collections.',
+      'Unlimited Tags.',
+      'All the premium features.',
+    ],
+    variant: 'self-hosted',
+  },
+  {
+    subtitle: 'Cloud',
+    features: [
+      'Hosted by us.',
+      'Unlimited Links.',
+      'Unlimited Collections.',
+      'Unlimited Tags.',
+      'All the premium features.',
+      'Priority support.',
+      'Fully custom instance.',
+    ],
+    variant: 'cloud',
+  },
+  {
+    subtitle: 'Enterprise',
+    features: [
+      'Hosted by us.',
+      'Unlimited Links.',
+      'Unlimited Collections.',
+      'Unlimited Tags.',
+      'All the premium features.',
+      'Priority support.',
+      'Fully custom instance.',
+    ],
+    variant: 'enterprise',
+  },
+];

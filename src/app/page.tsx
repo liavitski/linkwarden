@@ -4,16 +4,18 @@ import CompaniesSection from '@/components/CompaniesSection';
 import CollectSection from '@/components/CollectSection';
 import MoreSection from '@/components/MoreSection';
 import UseCasesSection from '@/components/UseCasesSection';
+import PlanSection from '@/components/PlanSection';
 
 export default function Home() {
   return (
-    <main>
-      <Header />
+    <main style={{padding: '86px'}}>
+      {/* <Header /> */}
       {/* <Hero /> */}
       {/* <CompaniesSection /> */}
       {/* <CollectSection /> */}
       {/* <MoreSection /> */}
-      <UseCasesSection />
+      {/* <UseCasesSection /> */}
+      <PlanSection />
     </main>
   );
 }
