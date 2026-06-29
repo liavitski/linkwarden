@@ -1,5 +1,3 @@
-'use client';
-import { motion } from 'motion/react';
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 import { WEIGHTS } from '@/utils/constants';
@@ -38,7 +36,7 @@ function PlanCard({
         </Title>
       </Wrapper>
 
-      <ActionButton>Get Started Now</ActionButton>
+      <ActionButton $variant={variant}>Get Started Now</ActionButton>
 
       <FeatureList>
         {features.map((f) => (
@@ -46,7 +44,9 @@ function PlanCard({
         ))}
       </FeatureList>
       {variant === 'cloud' && (
-        <p>14-day free trial, cancel anytime.</p>
+        <TrialParagraph>
+          14-day free trial, cancel anytime.
+        </TrialParagraph>
       )}
     </Card>
   );
@@ -63,6 +63,7 @@ const Card = styled.div<{ $variant: Variant }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 
   ${({ $variant }) =>
     $variant === 'cloud' &&
@@ -89,6 +90,7 @@ const Subtitle = styled.span`
   font-size: 2rem;
   font-weight: ${WEIGHTS.normal};
   color: var(--color-plan-subheading);
+  line-height: 1;
 `;
 
 const Wrapper = styled.div`
@@ -98,15 +100,61 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   font-size: 4rem;
   font-weight: ${WEIGHTS.normal};
+  line-height: 1;
+
+  span {
+    color: var(--color-button-ghost-border);
+  }
 `;
 
-const ActionButton = styled.button`
-  margin: 12px 0;
+const ActionButton = styled.button<{ $variant: Variant }>`
+  position: relative;
+  background: transparent;
+  font-size: 1.125rem;
+  color: inherit;
+  padding: 16px 60px;
+  border-radius: 32px;
+  font-weight: bold;
+  border: 2px solid var(--color-button-ghost-border);
+  margin-bottom: 32px;
+  z-index: 1;
+  cursor: pointer;
+  background: linear-gradient(
+    100deg,
+    rgba(69, 27, 143, 0.25) 0%,
+    rgba(0, 0, 0, 0.85) 56%,
+    rgba(69, 27, 143, 0.15) 100%
+  );
+
+  box-shadow: 0 10px 30px rgba(69, 27, 143, 0.25);
+
+  ${({ $variant }) =>
+    $variant === 'cloud' &&
+    css`
+      background: linear-gradient(
+        to top right,
+        #3a00a1 0%,
+        #9763f4 100%
+      );
+    `}
+
+  &:hover {
+    color: var(--color-text-hover);
+  }
 `;
 
 const FeatureList = styled.ul`
   margin: 0;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 1rem;
+`;
+
+const TrialParagraph = styled.p`
+  font-size: 1.5rem;
+  font-weight: ${WEIGHTS.medium};
 `;
 
 const FeatureItem = styled.li`

@@ -9,12 +9,12 @@ import PlanSection from '@/components/PlanSection';
 export default function Home() {
   return (
     <main style={{padding: '86px'}}>
-      {/* <Header /> */}
-      {/* <Hero /> */}
-      {/* <CompaniesSection /> */}
-      {/* <CollectSection /> */}
-      {/* <MoreSection /> */}
-      {/* <UseCasesSection /> */}
+      <Header />
+      <Hero />
+      <CompaniesSection />
+      <CollectSection />
+      <MoreSection />
+      <UseCasesSection />
       <PlanSection />
     </main>
   );
