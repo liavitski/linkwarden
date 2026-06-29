@@ -50,11 +50,30 @@ const Section = styled.section`
   margin-bottom: 23rem;
 `;
 
-const CollectBtn = styled(CtaButton)`
+const CollectBtn = styled.div`
   position: relative;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  width: 327px;
+  height: 74px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: ${WEIGHTS.medium};
+  font-size: 1.5rem;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.317);
 
-  background: #000; /* fallback */
+  &:focus {
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 
   border: 2px solid var(--color-button-ghost-border);
 
@@ -88,14 +107,6 @@ const CollectBtn = styled(CtaButton)`
     );
     opacity: 0;
     transition: opacity 400ms ease;
-  }
-
-  &:hover::before {
-    opacity: 0;
-  }
-
-  &:hover::after {
-    opacity: 1;
   }
 `;
 

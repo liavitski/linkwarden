@@ -1,7 +1,4 @@
-import { title } from 'process';
-
 import type { Variant } from '@/components/PlanCard';
-import { m } from 'motion/react';
 
 export const APP_TITLE = 'Linkwarden';
 
@@ -89,5 +86,44 @@ export const CARDS_DATA: CardData[] = [
       'Fully custom instance.',
     ],
     variant: 'enterprise',
+  },
+];
+
+type FAQItem = {
+  label: string;
+  description: string;
+};
+
+export const FAQ_DATA: FAQItem[] = [
+  {
+    label: 'Why use the paid plan when I can already self host it?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
+  },
+  {
+    label: 'How does the free trial work?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
+  },
+  {
+    label: 'How will I be billed?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
+  },
+  {
+    label: 'Where’s my data stored?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
+  },
+  {
+    label:
+      'Can I have a customized instance designed specifically for my needs?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
+  },
+  {
+    label: 'How can I cancel my plan?',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
   },
 ];
