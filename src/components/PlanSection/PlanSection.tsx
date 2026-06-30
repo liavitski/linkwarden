@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { motion } from 'motion/react';
 import type { Transition } from 'motion/react';
 import PlanCard from '../PlanCard';
@@ -22,58 +22,65 @@ function PlanSection() {
   return (
     <Wrapper>
       <Header>
-        <ButtonSelectionWrapper>
-          <Tag
-            initial={{ x: 30, y: -20, rotate: 25 }}
-            animate={
-              planType === 'yearly'
-                ? {
-                    x: [30, 25, 35, 28, 32, 30],
-                    y: [-20, -18, -22, -19, -21, -20],
-                    rotate: [25, 22, 28, 24, 26, 25],
-                  }
-                : { x: 30, y: -20, rotate: 25 }
-            }
-            transition={{
-              duration: 0.5,
-              ease: 'easeInOut',
-            }}
-          >
-            25% Off
-          </Tag>
-          <Button onClick={() => setPlanType('monthly')}>
-            {planType === 'monthly' && (
-              <ActiveBg
-                layoutId="active-bg"
-                transition={transition}
-              />
-            )}
-            <span>Monthly</span>
-          </Button>
-          <Button onClick={() => setPlanType('yearly')}>
-            {planType === 'yearly' && (
-              <ActiveBg
-                layoutId="active-bg"
-                transition={transition}
-              />
-            )}
-            <span>Yearly</span>
-          </Button>
-        </ButtonSelectionWrapper>
-        <Heading>Pick the Right Plan for You</Heading>
+        <MaxWidthWrapper>
+          <ButtonSelectionWrapper>
+            <Tag
+              initial={{ x: 30, y: -20, rotate: 25 }}
+              animate={
+                planType === 'yearly'
+                  ? {
+                      x: [30, 25, 35, 28, 32, 30],
+                      y: [-20, -18, -22, -19, -21, -20],
+                      rotate: [25, 22, 28, 24, 26, 25],
+                    }
+                  : { x: 30, y: -20, rotate: 25 }
+              }
+              transition={{
+                duration: 0.5,
+                ease: 'easeInOut',
+              }}
+            >
+              25% Off
+            </Tag>
+
+            <Button onClick={() => setPlanType('monthly')}>
+              {planType === 'monthly' && (
+                <ActiveBg
+                  layoutId="active-bg"
+                  transition={transition}
+                />
+              )}
+              <span>Monthly</span>
+            </Button>
+
+            <Button onClick={() => setPlanType('yearly')}>
+              {planType === 'yearly' && (
+                <ActiveBg
+                  layoutId="active-bg"
+                  transition={transition}
+                />
+              )}
+              <span>Yearly</span>
+            </Button>
+          </ButtonSelectionWrapper>
+        </MaxWidthWrapper>
+        <Heading>Pick the Right Plan for&nbsp;You</Heading>
       </Header>
 
       <CardsList>
-        {CARDS_DATA.map(({ subtitle, features, variant }) => (
-          <CardItem key={variant}>
+        {CARDS_DATA.map(({ subtitle, features, variant }, index) => {
+          const gridAreas = ['a', 'b', 'c'];
+          return (
             <PlanCard
+              gridArea={gridAreas[index]}
+              key={variant}
               subtitle={subtitle}
               features={features}
               variant={variant}
               planType={planType}
             />
-          </CardItem>
-        ))}
+          );
+        })}
       </CardsList>
     </Wrapper>
   );
@@ -92,6 +99,12 @@ const Header = styled.div`
   gap: 8px;
 `;
 
+const MaxWidthWrapper = styled.div`
+  max-width: 621px;
+  width: 100%;
+  margin: 0 auto;
+`;
+
 const ActiveBg = styled(motion.div)`
   position: absolute;
   inset: 0;
@@ -102,12 +115,18 @@ const ActiveBg = styled(motion.div)`
 
 const ButtonSelectionWrapper = styled.div`
   position: relative;
-  max-width: 620px;
   border-radius: 40px;
   border: 1px solid var(--color-plan-buttons-border);
   display: flex;
   padding: 6px;
   gap: 8px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding: 2px;
+    width: 90%;
+  }
 `;
 
 const Tag = styled(motion.div)`
@@ -121,11 +140,17 @@ const Tag = styled(motion.div)`
   background-color: var(--color-plan-buttons-tag-bg);
   border-radius: 10px;
   transform-origin: center;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
+    padding: 2px 8px;
+  }
 `;
 
 const Button = styled.button`
+  width: 100%;
   position: relative;
-  padding: 4px 100px;
+  padding: 4px 0;
   margin: 0;
   border: none;
   cursor: pointer;
@@ -136,6 +161,11 @@ const Button = styled.button`
   font-size: 1.8rem;
   font-weight: ${WEIGHTS.medium};
   border-radius: 40px;
+  text-align: center;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
+  }
 
   span {
     position: relative;
@@ -149,22 +179,34 @@ const Button = styled.button`
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
   line-height: 1.4;
   text-align: center;
   margin-bottom: 5rem;
 `;
 
-const CardsList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 54px;
-`;
+const CardsList = styled.div`
+  display: grid;
 
-const CardItem = styled.li``;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 54px;
+  grid-template-areas: 'a b c';
+  align-items: center;
+
+  @media ${QUERIES.laptopAndSmaller} {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'b b'
+      'a c';
+  }
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'b'
+      'c'
+      'a';
+  }
+`;
 
 export default PlanSection;

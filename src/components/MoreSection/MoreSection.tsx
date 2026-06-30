@@ -63,14 +63,14 @@ const CardWrapper = styled.div`
   justify-content: baseline;
   padding-top: 42px;
   align-items: center;
-  width: 479px;
+  width: 419px;
   height: 335px;
   border-radius: 16px;
 
   background-image:
     url('/docs/cardGradient.svg'), url('/docs/backgroundCard.svg');
 
-  background-repeat: no-repeat, no-repeat;
+  background-repeat: no-repeat, repeat;
   background-position: center, center;
   background-size: cover, contain;
 `;
@@ -101,13 +101,13 @@ const IconSize = styled.div`
 
 const CardHeading = styled.h3`
   font-weight: ${WEIGHTS.medium};
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: 1.75rem;
 `;
 
 const Description = styled.p`
   max-width: 340px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.125rem;
 `;
 
 export default MoreSection;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Accordion from '@radix-ui/react-accordion';
 import styled from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { FAQ_DATA } from '@/utils/constants';
 import { ChevronDown } from 'react-feather';
 import FaqSvgPattern from './SvgPattern';
@@ -9,14 +9,16 @@ import FaqSvgPattern from './SvgPattern';
 function FaqSection() {
   return (
     <Wrapper>
-      <Heading>Frequently Asked Questions</Heading>
+      <Heading>Frequently Asked&nbsp;Questions</Heading>
       <FaqSvgPattern />
       <Root type="single" collapsible>
         {FAQ_DATA.map(({ label, description }, index) => (
           <Item key={index} value={label}>
             <Header>
               <Trigger>
-                <ChevronDown size={32} />
+                <IconWrapper>
+                  <ChevronDown size={32} />
+                </IconWrapper>
                 {label}
               </Trigger>
             </Header>
@@ -43,7 +45,7 @@ const Wrapper = styled.section`
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
+  font-size: clamp(2.3rem, 7vw, 4.5rem);
   line-height: 1.4;
   text-align: center;
   margin-bottom: 5rem;
@@ -85,6 +87,10 @@ const Root = styled(Accordion.Root)`
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding: 16px;
+  }
 `;
 
 const Item = styled(Accordion.Item)``;
@@ -104,6 +110,16 @@ const Trigger = styled(Accordion.Trigger)`
   width: 100%;
   padding: 32px 0;
 
+  @media ${QUERIES.laptopAndSmaller} {
+    font-size: clamp(1rem, 0.5rem + 2vw, 2.25rem);
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 4px;
+  }
+
   &[data-state='open'] svg {
     transform: rotate(180deg);
   }
@@ -122,12 +138,22 @@ const Trigger = styled(Accordion.Trigger)`
       transparent 100%
     );
   }
+
+`;
+
+const IconWrapper = styled.div`
+  flex-shrink: 0;
 `;
 
 const Content = styled(Accordion.Content)`
   padding: 16px 52px;
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.normal};
+
+  @media ${QUERIES.laptopAndSmaller} {
+    font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
+     padding: 16px;
+  }
 `;
 
 const Footer = styled.p`
@@ -137,6 +163,10 @@ const Footer = styled.p`
 
   a {
     color: inherit;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
   }
 `;
 

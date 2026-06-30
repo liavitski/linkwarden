@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 
 export type Variant = 'self-hosted' | 'cloud' | 'enterprise';
 export type PlanType = 'monthly' | 'yearly';
@@ -10,6 +10,7 @@ type PlanCardProps = {
   features: string[];
   variant: Variant;
   planType: PlanType;
+  gridArea: string;
 };
 
 function PlanCard({
@@ -17,6 +18,7 @@ function PlanCard({
   features,
   variant,
   planType,
+  gridArea,
 }: PlanCardProps) {
   const titles = {
     'self-hosted': 'Free',
@@ -27,7 +29,7 @@ function PlanCard({
   const type = planType === 'monthly' ? 'month' : 'year';
 
   return (
-    <Card $variant={variant}>
+    <Card $variant={variant} $gridArea={gridArea}>
       <Subtitle>{subtitle}</Subtitle>
       <Wrapper>
         <Title>
@@ -52,12 +54,12 @@ function PlanCard({
   );
 }
 
-const Card = styled.div<{ $variant: Variant }>`
+const Card = styled.div<{ $variant: Variant; $gridArea: string }>`
   border-radius: 12px;
   padding: 16px;
   background: transparent;
   border: 1px solid var(--color-button-ghost-border);
-  width: 482px;
+
   height: 800px;
   display: flex;
   flex-direction: column;
@@ -65,11 +67,21 @@ const Card = styled.div<{ $variant: Variant }>`
   justify-content: center;
   gap: 24px;
 
+  grid-area: ${({ $gridArea }) => $gridArea};
+
+  width: 100%;
+  max-width: 482px;
+
+  margin: 0 auto; /* THIS is the key */
+
   ${({ $variant }) =>
     $variant === 'cloud' &&
     css`
-      width: 566px;
+      width: 100%;
+      max-width: 566px;
+      justify-self: center;
       height: 969px;
+
       background: linear-gradient(
         100deg,
         rgba(236, 200, 200, 0.1) 0%,
@@ -78,12 +90,17 @@ const Card = styled.div<{ $variant: Variant }>`
       );
       box-shadow: 0 10px 30px rgba(42, 42, 42, 0.6);
     `}
-
   ${({ $variant }) =>
     $variant !== 'cloud' &&
     css`
       border: 1px solid var(--color-button-ghost-border-darker);
     `}
+
+    @media ${QUERIES.phoneAndSmaller} {
+    padding: 8px;
+    height: auto;
+    padding: 16px 0;
+  }
 `;
 
 const Subtitle = styled.span`
@@ -91,6 +108,10 @@ const Subtitle = styled.span`
   font-weight: ${WEIGHTS.normal};
   color: var(--color-plan-subheading);
   line-height: 1;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -101,6 +122,10 @@ const Title = styled.h3`
   font-size: 4rem;
   font-weight: ${WEIGHTS.normal};
   line-height: 1;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 2rem;
+  }
 
   span {
     color: var(--color-button-ghost-border);
@@ -155,6 +180,10 @@ const FeatureList = styled.ul`
 const TrialParagraph = styled.p`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
+  }
 `;
 
 const FeatureItem = styled.li`
@@ -171,6 +200,10 @@ const FeatureItem = styled.li`
     margin-right: 8px;
     background: url('/docs/tick.svg') no-repeat center;
     background-size: contain;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    font-size: 1rem;
   }
 `;
 

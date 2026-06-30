@@ -12,16 +12,16 @@ function CollectSection() {
       <CollectBtn>Collect & Organize</CollectBtn>
       <ContentWrapper>
         <PresentationBit>
-          <Heading>Collect and Organize Webpages</Heading>
+          <Heading>Collect and Organize&nbsp;Webpages</Heading>
           <ListWrapper>
             <ListItem>
-              Collect webpages and bookmarks from any browser
+              Collect webpages and bookmarks from any&nbsp;browser
             </ListItem>
             <ListItem>
-              Organize your Links with Collections and Tags
+              Organize your Links with Collections and&nbsp;Tags
             </ListItem>
             <ListItem>
-              Create new Collections to group related Links
+              Create new Collections to group related&nbsp;Links
             </ListItem>
           </ListWrapper>
         </PresentationBit>
