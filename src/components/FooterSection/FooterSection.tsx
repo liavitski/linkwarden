@@ -5,7 +5,7 @@ import FooterSvgPattern from './SvgPattern';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { StartFreeTrialBtn, StarUsOnGitHubBtn } from '../Hero';
 import { LogoSvg } from '../Logo';
 
@@ -103,23 +103,29 @@ const Wrapper = styled.footer`
   justify-content: center;
   gap: 42px;
   max-width: 1300px;
+  padding-bottom: 64px;
 `;
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
+  font-size: clamp(2.3rem, 7vw, 4.5rem);
   text-align: center;
   max-width: 1221px;
   line-height: 1;
+  text-wrap: balance;
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 40px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-direction: column;
+  }
 `;
 
 const SubHeading = styled.h3`
-  font-size: 2.25rem;
+  font-size: clamp(1.25rem, 2vw, 2.25rem);
   font-weight: ${WEIGHTS.medium};
 `;
 
@@ -127,6 +133,12 @@ const Footer = styled.div`
   margin-top: 110px;
   display: flex;
   gap: 150px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 96px;
+  }
 `;
 
 const LogoArea = styled.div`
@@ -135,17 +147,31 @@ const LogoArea = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+   align-items: center;
+  }
 `;
 
 const SecondColumn = styled.div`
   display: flex;
   gap: 150px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 96px;
+  }
 `;
 
 const LogoSubHeading = styled.p`
   font-weight: ${WEIGHTS.normal};
   color: #cecece;
   padding-left: 6px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+  text-align: center;
+  }
 `;
 
 const LinksArea = styled.div`
@@ -153,12 +179,17 @@ const LinksArea = styled.div`
   flex-direction: column;
   gap: 24px;
   justify-self: flex-start;
+  flex-shrink: 0;
 `;
 
 const LinksHeading = styled.h4`
   font-size: 1.5rem;
   line-height: 1;
   font-weight: ${WEIGHTS.medium};
+
+  @media ${QUERIES.phoneAndSmaller} {
+   text-align: center;
+  }
 `;
 
 const LinksWrapper = styled.ul`
@@ -167,6 +198,10 @@ const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    align-items: center;
+  }
 `;
 
 const LinkItem = styled.li`
@@ -190,6 +225,10 @@ const ContactArea = styled.div`
     font-weight: ${WEIGHTS.normal};
     font-size: 1.2rem;
     line-height: 1;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    align-items: center;
   }
 `;
 

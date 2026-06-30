@@ -19,7 +19,7 @@ function FaqSection() {
                 <IconWrapper>
                   <ChevronDown size={32} />
                 </IconWrapper>
-                {label}
+                <TriggerText>{label}</TriggerText>
               </Trigger>
             </Header>
             <Content>{description}</Content>
@@ -97,24 +97,29 @@ const Item = styled(Accordion.Item)``;
 
 const Header = styled(Accordion.Header)``;
 
+const TriggerText = styled.p`
+  font-size: 2.25rem;
+  font-weight: ${WEIGHTS.medium};
+  color: var(--color-text);
+  text-align: left;
+  text-wrap: pretty;
+
+  @media ${QUERIES.laptopAndSmaller} {
+    font-size: clamp(1rem, 0.5rem + 2vw, 2.25rem);
+  }
+`;
+
 const Trigger = styled(Accordion.Trigger)`
   display: flex;
+  align-items: center;
   gap: 16px;
   cursor: pointer;
   position: relative;
-  font-size: 2.25rem;
-  font-weight: ${WEIGHTS.medium};
-  color: inherit;
+  color: var(--color-text);
   background-color: transparent;
   border: none;
   width: 100%;
   padding: 32px 0;
-
-  @media ${QUERIES.laptopAndSmaller} {
-    font-size: clamp(1rem, 0.5rem + 2vw, 2.25rem);
-    justify-content: center;
-    align-items: center;
-  }
 
   @media ${QUERIES.phoneAndSmaller} {
     gap: 4px;
@@ -138,11 +143,14 @@ const Trigger = styled(Accordion.Trigger)`
       transparent 100%
     );
   }
-
 `;
 
 const IconWrapper = styled.div`
   flex-shrink: 0;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    width: 24px;
+  }
 `;
 
 const Content = styled(Accordion.Content)`
@@ -152,7 +160,7 @@ const Content = styled(Accordion.Content)`
 
   @media ${QUERIES.laptopAndSmaller} {
     font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
-     padding: 16px;
+    padding: 16px;
   }
 `;
 

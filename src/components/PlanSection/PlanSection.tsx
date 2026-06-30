@@ -123,7 +123,7 @@ const ButtonSelectionWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
 
-  @media ${QUERIES.phoneAndSmaller} {
+  @media (max-width: 740px) {
     padding: 2px;
     width: 90%;
   }
