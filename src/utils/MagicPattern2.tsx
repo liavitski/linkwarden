@@ -971,7 +971,7 @@ const MagicPatternSvg2 = () => {
         <clipPath id={id('clip0')}>
           <rect
             width="1214"
-            height="788"
+            height="988"
             fill="currentColor"
             transform="translate(-224)"
           />

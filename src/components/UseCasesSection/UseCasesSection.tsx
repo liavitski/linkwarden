@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 import {
   cardsFirstRow,
   cardsSecondRow,
@@ -11,7 +11,7 @@ import {
 function UseCasesSection() {
   return (
     <Wrapper>
-      <Heading>Exploring The Use Cases</Heading>
+      <Heading>Exploring The&nbsp;Use&nbsp;Cases</Heading>
       <UseCasesWrapper>
         <FirstRow>
           {cardsFirstRow.map(({ label, icon }) => {
@@ -60,10 +60,14 @@ const Wrapper = styled.section`
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
+  font-size: clamp(3rem, 7vw, 4.5rem);
   line-height: 1.4;
   text-align: center;
   margin-bottom: 5rem;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: left;
+  }
 `;
 
 const UseCasesWrapper = styled.div`

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { WEIGHTS } from '@/utils/constants';
 import { cards } from './icons';
 import iconsObj from '@/components/MoreSection/icons';
+import { QUERIES } from '@/utils/constants';
 
 function MoreSection() {
   return (
     <Wrapper>
-      <Heading>Hold on, there&apos;s more!</Heading>
+      <Heading>Hold on, there&apos;s&nbsp;more!</Heading>
       <CardsWrapper>
         {cards.map(({ label, desc, icon }) => {
           const IconComponent = iconsObj[icon];
@@ -38,10 +39,14 @@ const Wrapper = styled.section`
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
+  font-size: clamp(3rem, 7vw, 4.5rem);
   line-height: 1.4;
   text-align: center;
   margin-bottom: 5rem;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: left;
+  }
 `;
 
 const CardsWrapper = styled.div`
@@ -63,8 +68,7 @@ const CardWrapper = styled.div`
   border-radius: 16px;
 
   background-image:
-    url('/docs/cardGradient.svg'),
-    url('/docs/backgroundCard.svg');
+    url('/docs/cardGradient.svg'), url('/docs/backgroundCard.svg');
 
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
@@ -97,7 +101,7 @@ const IconSize = styled.div`
 
 const CardHeading = styled.h3`
   font-weight: ${WEIGHTS.medium};
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
 `;
 
 const Description = styled.p`
