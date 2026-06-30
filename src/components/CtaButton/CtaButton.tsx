@@ -28,6 +28,7 @@ const Btn = styled.button`
   font-size: 1.5rem;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.317);
 
+  
   &:focus {
     outline-offset: 2px;
   }

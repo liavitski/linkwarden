@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { Menu } from 'react-feather';
 import Logo from '../Logo';
 import Link from 'next/link';
@@ -63,17 +63,17 @@ const DesktopView = styled.div`
   align-items: center;
   width: 100%;
 
-  @media (max-width: 880px) {
+  @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
 `;
 
 const MobileView = styled.div`
-  display: flex;
+  display: none;
   width: 100%;
 
-  @media (min-width: 880px) {
-    display: none;
+  @media ${QUERIES.tabletAndSmaller} {
+    display: flex;
   }
 `;
 
@@ -109,14 +109,10 @@ const Filler = styled.div`
 const HamburgerButton = styled(UnstyledButton)`
   padding: 16px;
   border-radius: 8px;
-
-  &:hover {
-    background-color: var(--color-link-hover);
-  }
+  flex-shrink: 0;
 
   &:focus {
     outline-color: white;
-    background-color: var(--color-link-hover);
   }
 `;
 

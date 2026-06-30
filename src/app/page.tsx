@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <main>
       <Header />
-      {/* <Hero /> */}
-      {/* <CompaniesSection /> */}
-      {/* <CollectSection /> */}
+      <Hero />
+      <CompaniesSection />
+      <CollectSection />
       {/* <MoreSection /> */}
       {/* <UseCasesSection /> */}
       {/* <PlanSection /> */}

@@ -953,9 +953,9 @@ const MagicPatternSvg2 = () => {
           <stop
             offset="0.75"
             stopColor="#6F30D8"
-            stopOpacity="0.01"
+            stopOpacity="0.00"
           />
-          <stop offset="1" stopColor="#6F30D8" stopOpacity="0.01" />
+          <stop offset="1" stopColor="#6F30D8" stopOpacity="0.03" />
         </radialGradient>
         <radialGradient
           id={id('paint1_radial')}
@@ -963,16 +963,16 @@ const MagicPatternSvg2 = () => {
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(0 544) scale(1007 544)"
+          gradientTransform="translate(333 344) scale(1007 544)"
         >
           <stop stopColor="white" />
           <stop offset="1" stopColor="white" stopOpacity="0.04" />
         </radialGradient>
         <clipPath id={id('clip0')}>
           <rect
-            width="1414"
-            height="1088"
-            fill="white"
+            width="1214"
+            height="788"
+            fill="currentColor"
             transform="translate(-224)"
           />
         </clipPath>

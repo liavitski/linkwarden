@@ -1,6 +1,7 @@
 import * as React from 'react';
 import UsersLogos from '@/components/UsersLogos';
 import styled from 'styled-components';
+import { QUERIES } from '@/utils/constants';
 
 function CompaniesSection() {
   return (
@@ -15,18 +16,22 @@ function CompaniesSection() {
 }
 
 const Wrapper = styled.section`
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- gap: 80px;
- margin-bottom: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 25rem;
 `;
 
 const Heading = styled.h2`
-  font-size: 3rem;
   max-width: 814px;
   text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: left;
+  }
 `;
 
 export default CompaniesSection;

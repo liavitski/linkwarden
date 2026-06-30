@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import CtaButton from '../CtaButton';
+import { QUERIES } from '@/utils/constants';
 import { WEIGHTS } from '@/utils/constants';
 import Image from 'next/image';
 import MagicPatternSvg2 from '@/utils/MagicPattern2';
@@ -25,6 +25,7 @@ function CollectSection() {
             </ListItem>
           </ListWrapper>
         </PresentationBit>
+
         <ImageWrapper>
           <Image
             src="/docs/collect.jpg"
@@ -113,19 +114,27 @@ const CollectBtn = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   gap: 36px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-direction: column;
+  }
 `;
 
 const PresentationBit = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 32px;
+  gap: clamp(1rem, 4vw, 2rem);
 `;
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.bold};
-  font-size: 4.5rem;
   line-height: 1.4;
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: left;
+  }
 `;
 
 const ListWrapper = styled.ul`
@@ -136,7 +145,7 @@ const ListItem = styled.li`
   list-style-type: none;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
   font-weight: ${WEIGHTS.medium};
 
   &::before {
