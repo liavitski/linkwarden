@@ -66,7 +66,7 @@ const SubHeading = styled.h2`
   margin-bottom: 3rem;
 `;
 
-export const ButtonsWrapper = styled.div`
+const ButtonsWrapper = styled.div`
   display: flex;
   gap: 40px;
   margin-bottom: 3rem;
