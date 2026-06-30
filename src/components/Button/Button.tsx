@@ -17,9 +17,9 @@ const SIZES: Record<SizeKey, SizeConfig> = {
     '--padding': '6px 12px',
   },
   medium: {
-    '--borderRadius': 2 + 'px',
+    '--borderRadius': 32 + 'px',
     '--fontSize': 18 / 16 + 'rem',
-    '--padding': '14px 20px',
+    '--padding': '8px 16px',
   },
   large: {
     '--borderRadius': 32 + 'px',
@@ -36,7 +36,6 @@ type ButtonProps = {
 
 const Button = ({ variant, size, children }: ButtonProps) => {
   const styles = SIZES[size];
-  console.log(styles);
 
   let Component;
   if (variant === 'fill') {
@@ -61,6 +60,7 @@ const ButtonBase = styled.button`
   font-family: var(--font-family);
   color: var(--color-text);
   font-weight: ${WEIGHTS.medium};
+  width: fit-content;
 
   &:focus {
     outline-color: white;
@@ -93,10 +93,12 @@ const GhostButton = styled(ButtonBase)`
 
   &:focus {
     outline-color: white;
+    background-color: var(--color-link-hover);
   }
 
   &:hover {
     color: var(--color-text-hover);
+    background-color: var(--color-link-hover);
   }
 `;
 

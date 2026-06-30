@@ -10,16 +10,16 @@ import Footer from '@/components/FooterSection';
 
 export default function Home() {
   return (
-    <main style={{ padding: '86px' }}>
+    <main>
       <Header />
-      <Hero />
-      <CompaniesSection />
-      <CollectSection />
-      <MoreSection />
-      <UseCasesSection />
-      <PlanSection />
-      <FaqSection />
-      <Footer />
+      {/* <Hero /> */}
+      {/* <CompaniesSection /> */}
+      {/* <CollectSection /> */}
+      {/* <MoreSection /> */}
+      {/* <UseCasesSection /> */}
+      {/* <PlanSection /> */}
+      {/* <FaqSection /> */}
+      {/* <Footer /> */}
     </main>
   );
 }

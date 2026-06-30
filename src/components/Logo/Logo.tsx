@@ -14,6 +14,7 @@ const LinkWrapper = styled(Link)`
   display: block;
   color: var(--text-color);
   text-decoration: none;
+  flex-shrink: 0;
 `;
 
 type LogoSvgProps = {

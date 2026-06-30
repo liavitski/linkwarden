@@ -6,6 +6,7 @@ export const DARK_COLORS = {
   '--color-text': '#FAFAFA',
   '--color-text-secondary': '#C0C0C0',
   '--color-text-hover': '#E5E7EB',
+  '--color-link-hover': '#828282',
   '--color-background': '#0F1115',
   '--color-button-ghost-border': '#828282',
   '--color-button-ghost-border-darker': '#616161',
