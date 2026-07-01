@@ -2,8 +2,10 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { QUERIES, WEIGHTS } from '@/utils/constants';
+import { motion} from 'motion/react';
+import { QUERIES, WEIGHTS, NAV_LINKS } from '@/utils/constants';
 import { Menu } from 'react-feather';
+
 import Logo from '../Logo';
 import Link from 'next/link';
 import Button from '../Button';
@@ -13,18 +15,54 @@ import MobileMenu from '../MobileMenu';
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+  const [hoveredNavItem, setHoveredNavItem] = React.useState<
+    string | null
+  >(null);
+
+  const id = React.useId();
 
   return (
     <Wrapper>
       <Logo />
       <DesktopView>
         <Filler />
-        <Navigation>
-          <Link href="">Features</Link>
-          <Link href="">Pricing</Link>
-          <Link href="">FAQs</Link>
-          <Link href="">Docs</Link>
-          <Link href="">Blog</Link>
+        <Navigation
+          onMouseLeave={() => setHoveredNavItem(null)}
+          aria-label="Main navigation"
+        >
+          <UnorderedList>
+            {NAV_LINKS.map(({ slug, label, href }) => {
+              return (
+                <li
+                  key={slug}
+                  style={{
+                    zIndex: hoveredNavItem === slug ? 1 : 2,
+                  }}
+                >
+
+                    {hoveredNavItem === slug && (
+                      <AnimatedBorder
+                        layoutId={id}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 490,
+                          damping: 60,
+                          duration: 0.25,
+                        }}
+                   
+                      />
+                    )}
+
+                  <Link
+                    href={href}
+                    onMouseEnter={() => setHoveredNavItem(slug)}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
+          </UnorderedList>
         </Navigation>
         <Filler />
         <Button variant="ghost" size="large">
@@ -78,9 +116,6 @@ const MobileView = styled.div`
 `;
 
 const Navigation = styled.nav`
-  display: flex;
-  gap: 8px;
-
   a {
     color: var(--color-text-secondary);
     text-decoration: none;
@@ -90,16 +125,41 @@ const Navigation = styled.nav`
     border-radius: 32px;
 
     &:hover {
-      background-color: var(--color-link-hover);
       color: var(--text-color);
     }
 
     &:focus {
-      outline-color: white;
-      background-color: var(--color-link-hover);
+      outline-color: var(--color-button-ghost-border);
       color: var(--text-color);
     }
   }
+`;
+
+const UnorderedList = styled.ul`
+  display: flex;
+  gap: 8px;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    position: relative;
+  }
+`;
+
+const AnimatedBorder = styled(motion.div)`
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    currentColor 20%,
+    currentColor 80%,
+    transparent 100%
+  );
 `;
 
 const Filler = styled.div`

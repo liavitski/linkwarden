@@ -93,12 +93,10 @@ const GhostButton = styled(ButtonBase)`
 
   &:focus {
     outline-color: white;
-    background-color: var(--color-link-hover);
   }
 
   &:hover {
     color: var(--color-text-hover);
-    background-color: var(--color-link-hover);
   }
 `;
 

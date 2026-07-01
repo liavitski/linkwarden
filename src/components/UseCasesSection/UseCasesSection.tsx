@@ -73,7 +73,11 @@ const Heading = styled.h2`
 const UseCasesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 64px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 94px;
+  }
 `;
 
 const FirstRow = styled.div`

@@ -15,7 +15,8 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
 }
 html {
-  scrollbar-gutter: stable; // Dont using it because of Radix UI
+  scrollbar-gutter: stable; 
+  scroll-behavior: smooth;
   /*
     Create a stacking context, without a z-index.
     This ensures that all portal content (modals and tooltips) will

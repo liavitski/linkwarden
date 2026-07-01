@@ -128,3 +128,37 @@ export const FAQ_DATA: FAQItem[] = [
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nulla nostrum, ea placeat doloremque, officia alias similique quam perspiciatis eos vitae corporis modi cumque excepturi? Similique autem sit non ipsa',
   },
 ];
+
+type NAV_LINK = {
+  slug: string;
+  label: string;
+  href: string;
+};
+
+export const NAV_LINKS: NAV_LINK[] = [
+  {
+    slug: 'features',
+    label: 'Features',
+    href: '#features',
+  },
+  {
+    slug: 'pricing',
+    label: 'Pricing',
+    href: '#pricing',
+  },
+  {
+    slug: 'faq',
+    label: 'FAQs',
+    href: '#faq',
+  },
+  {
+    slug: 'docs',
+    label: 'Docs',
+    href: '#docs',
+  },
+  {
+    slug: 'blog',
+    label: 'Blog',
+    href: '#blog',
+  },
+];
