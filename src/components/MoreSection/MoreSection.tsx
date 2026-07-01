@@ -1,19 +1,51 @@
+'use client';
+
 import * as React from 'react';
+import { motion } from 'motion/react';
 import styled from 'styled-components';
 import { WEIGHTS } from '@/utils/constants';
 import { cards } from './icons';
 import iconsObj from '@/components/MoreSection/icons';
 import { QUERIES } from '@/utils/constants';
 
+const cardsContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
 function MoreSection() {
   return (
     <Wrapper>
       <Heading>Hold on, there&apos;s&nbsp;more!</Heading>
-      <CardsWrapper>
+      <CardsWrapper
+        variants={cardsContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         {cards.map(({ label, desc, icon }) => {
           const IconComponent = iconsObj[icon];
           return (
-            <CardWrapper key={icon}>
+            /* @ts-expect-error motion varinants not typed*/
+            <CardWrapper key={icon} variants={cardVariant}>
               <IconWrapper>
                 <IconBackground>
                   <IconSize>
@@ -49,14 +81,14 @@ const Heading = styled.h2`
   }
 `;
 
-const CardsWrapper = styled.div`
+const CardsWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 42px;
 `;
 
-const CardWrapper = styled.div`
+const CardWrapper = styled(motion.div)`
   display: flex;
   gap: 16px;
   flex-direction: column;

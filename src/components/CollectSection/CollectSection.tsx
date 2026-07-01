@@ -1,9 +1,56 @@
+'use client';
 import * as React from 'react';
+
+import { motion } from 'motion/react';
 import styled from 'styled-components';
 import { QUERIES } from '@/utils/constants';
 import { WEIGHTS } from '@/utils/constants';
 import Image from 'next/image';
 import MagicPatternSvg2 from '@/utils/MagicPattern2';
+
+const headingVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 2.2,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const listContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const listItem = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 function CollectSection() {
   return (
@@ -12,21 +59,43 @@ function CollectSection() {
       <CollectBtn>Collect & Organize</CollectBtn>
       <ContentWrapper>
         <PresentationBit>
-          <Heading>Collect and Organize&nbsp;Webpages</Heading>
-          <ListWrapper>
-            <ListItem>
+          <Heading
+            // @ts-expect-error motion varinants not typed
+            variants={headingVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.6 }}
+          >
+            Collect and Organize&nbsp;Webpages
+          </Heading>
+          <ListWrapper
+            variants={listContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            {/* @ts-expect-error motion varinants not typed*/}
+            <ListItem variants={listItem}>
               Collect webpages and bookmarks from any&nbsp;browser
             </ListItem>
-            <ListItem>
+            {/* @ts-expect-error motion varinants not typed*/}
+            <ListItem variants={listItem}>
               Organize your Links with Collections and&nbsp;Tags
             </ListItem>
-            <ListItem>
+            {/* @ts-expect-error motion varinants not typed*/}
+            <ListItem variants={listItem}>
               Create new Collections to group related&nbsp;Links
             </ListItem>
           </ListWrapper>
         </PresentationBit>
 
-        <ImageWrapper>
+        <ImageWrapper
+          // @ts-expect-error motion varinants not typed
+          variants={imageVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+        >
           <Image
             src="/docs/collect.jpg"
             width={844}
@@ -127,7 +196,7 @@ const PresentationBit = styled.div`
   gap: clamp(1rem, 4vw, 2rem);
 `;
 
-const Heading = styled.h2`
+const Heading = styled(motion.h2)`
   font-weight: ${WEIGHTS.bold};
   line-height: 1.4;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -137,11 +206,11 @@ const Heading = styled.h2`
   }
 `;
 
-const ListWrapper = styled.ul`
+const ListWrapper = styled(motion.ul)`
   padding: 0;
 `;
 
-const ListItem = styled.li`
+const ListItem = styled(motion.li)`
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -158,7 +227,7 @@ const ListItem = styled.li`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled(motion.div)`
   flex: 1;
   overflow: hidden;
   border-radius: 28px;
