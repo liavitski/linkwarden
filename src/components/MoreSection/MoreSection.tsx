@@ -39,7 +39,7 @@ function MoreSection() {
         variants={cardsContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {cards.map(({ label, desc, icon }) => {
           const IconComponent = iconsObj[icon];
@@ -95,6 +95,7 @@ const CardWrapper = styled(motion.div)`
   justify-content: baseline;
   padding-top: 42px;
   align-items: center;
+  justify-items: center;
   width: 419px;
   height: 335px;
   border-radius: 16px;
@@ -105,6 +106,12 @@ const CardWrapper = styled(motion.div)`
   background-repeat: no-repeat, repeat;
   background-position: center, center;
   background-size: cover, contain;
+
+  @media (${QUERIES.phoneAndSmaller}) {
+    height: fit-content;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 `;
 
 const IconWrapper = styled.div`

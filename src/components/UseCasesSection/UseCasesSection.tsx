@@ -55,7 +55,7 @@ const Wrapper = styled.section`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 25rem;
+  margin-bottom: 22rem;
 `;
 
 const Heading = styled.h2`

@@ -21,7 +21,7 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
   gap: 80px;
-  margin-bottom: 25rem;
+  margin-bottom: 22rem;
 `;
 
 const Heading = styled.h2`

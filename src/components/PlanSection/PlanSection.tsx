@@ -20,7 +20,7 @@ function PlanSection() {
   const [planType, setPlanType] = React.useState<PlanType>('monthly');
 
   return (
-    <Wrapper>
+    <Wrapper id="pricing">
       <Header>
         <MaxWidthWrapper>
           <ButtonSelectionWrapper>
@@ -89,7 +89,8 @@ function PlanSection() {
 const Wrapper = styled.section`
   max-width: 1650px;
   margin: 0 auto;
-  margin-bottom: 25rem;
+  margin-bottom: 22rem;
+  padding-top: 3rem;
 `;
 
 const Header = styled.div`

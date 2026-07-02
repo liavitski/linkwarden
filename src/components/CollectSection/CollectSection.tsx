@@ -54,7 +54,7 @@ const listItem = {
 
 function CollectSection() {
   return (
-    <Section>
+    <Section id="features">
       <MagicPatternSvg2 />
       <CollectBtn>Collect & Organize</CollectBtn>
       <ContentWrapper>
@@ -118,6 +118,7 @@ const Section = styled.section`
   margin: 0 auto;
   gap: 72px;
   margin-bottom: 23rem;
+  padding-top: 3rem;
 `;
 
 const CollectBtn = styled.div`

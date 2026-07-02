@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 
 import styled, { keyframes } from 'styled-components';
-import { WEIGHTS } from '@/utils/constants';
+import { NAV_LINKS, WEIGHTS } from '@/utils/constants';
 import { X } from 'react-feather';
 
 import VisuallyHidden from '../VisuallyHidden';
@@ -36,11 +36,11 @@ function MobileMenu({ isOpen, onDismiss }: MobileMenuProps) {
               </CloseButton>
               <Filler />
               <LinksWrapper>
-                <Link href="">Features</Link>
-                <Link href="">Pricing</Link>
-                <Link href="">FAQs</Link>
-                <Link href="">Docs</Link>
-                <Link href="">Blog</Link>
+                {NAV_LINKS.map(({ slug, label, href }) => (
+                  <Link href={href} key={slug} onClick={onDismiss}>
+                    {label}
+                  </Link>
+                ))}
               </LinksWrapper>
               <Filler />
               <Button variant="ghost" size="large">

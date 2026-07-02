@@ -5,10 +5,21 @@ import { APP_TITLE, DARK_TOKENS } from '@/utils/constants';
 import { manrope } from '@/utils/fonts';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
+const title = APP_TITLE;
+const description =
+  'Linkwarden is a fully self-hostable, open-source collaborative bookmark manager to collect, organize and archive webpages.';
+const url = 'https://linkwarden-self.vercel.app/';
+
 export const metadata: Metadata = {
-  title: APP_TITLE,
-  description:
-    'Linkwarden is a fully self-hostable, open-source collaborative bookmark manager to collect, organize and archive webpages.',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: 'Linkwarden',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

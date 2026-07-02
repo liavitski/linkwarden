@@ -8,7 +8,7 @@ import FaqSvgPattern from './SvgPattern';
 
 function FaqSection() {
   return (
-    <Wrapper>
+    <Wrapper id="faq">
       <Heading>Frequently Asked&nbsp;Questions</Heading>
       <FaqSvgPattern />
       <Root type="single" collapsible>
@@ -41,6 +41,7 @@ const Wrapper = styled.section`
   margin: 0 auto;
   position: relative;
   margin-bottom: 25rem;
+  padding-top: 3rem;
 `;
 
 const Heading = styled.h2`
@@ -93,7 +94,11 @@ const Root = styled(Accordion.Root)`
   }
 `;
 
-const Item = styled(Accordion.Item)``;
+const Item = styled(Accordion.Item)`
+  &:last-child ::after {
+    content: none;
+  }
+`;
 
 const Header = styled(Accordion.Header)``;
 
