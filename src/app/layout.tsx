@@ -33,6 +33,14 @@ export default function RootLayout({
       style={DARK_TOKENS as React.CSSProperties}
       className={`${manrope.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+      </head>
       <body>
         <StyledComponentsRegistry>
           <MaxWidthWrapper>{children}</MaxWidthWrapper>

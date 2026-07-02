@@ -25,7 +25,9 @@ function Hero() {
           <span>Star Us On GitHub</span>
         </StarUsOnGitHubBtn>
       </ButtonsWrapper>
+
       <MagicPatternSvg />
+
       <ImageWrapper>
         <Image
           src="/docs/hero.jpg"
@@ -33,8 +35,9 @@ function Hero() {
           width={1287}
           height={810}
           preload
+          fetchPriority="high"
           sizes="100vw"
-          quality={85}
+          quality={50}
         />
       </ImageWrapper>
     </Wrapper>
@@ -47,8 +50,8 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  position: relative;
   margin-bottom: 80px;
+  position: relative;
 `;
 
 export const Heading = styled.h1`
@@ -105,13 +108,12 @@ export const StarUsOnGitHubBtn = styled(CtaButton)`
   gap: 8px;
   border: 2px solid var(--color-button-ghost-border);
 
-
-   &:hover {
+  &:hover {
     background: #00000046;
   }
 
   &:focus {
-   background: #00000047;
+    background: #00000047;
   }
 `;
 

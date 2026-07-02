@@ -26,7 +26,7 @@ export default function Home() {
       />
       <main>
         <Header />
-        <Hero />
+        <Hero /> 
         <CompaniesSection />
         <CollectSection />
         <MoreSection />

@@ -101,6 +101,7 @@ function CollectSection() {
             width={844}
             height={669}
             alt="Collect and Organize photo example"
+            quality={70}
           />
         </ImageWrapper>
       </ContentWrapper>
