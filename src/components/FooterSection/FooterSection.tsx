@@ -1,18 +1,29 @@
 import * as React from 'react';
 
 import styled from 'styled-components';
-import FooterSvgPattern from './SvgPattern';
 import Link from 'next/link';
 import Image from 'next/image';
+import Logo from '../Logo';
 
 import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { StartFreeTrialBtn, StarUsOnGitHubBtn } from '../Hero';
-import { LogoSvg } from '../Logo';
 
 function FooterSection() {
   return (
     <Wrapper>
-      <FooterSvgPattern />
+      <SVGImage
+        src="/docs/magic-pattern-faq.svg"
+        alt=""
+        aria-hidden
+        fill
+        style={{
+          objectFit: 'none',
+          objectPosition: 'calc(50% + 300px) calc(50% - 80px)', // left 100px, down 40px
+          pointerEvents: 'none',
+          zIndex: -1,
+        }}
+      />
+
       <SubHeading>14-day free trial, cancel anytime</SubHeading>
       <Heading>Start your bookmarking journey</Heading>
       <ButtonsWrapper>
@@ -22,7 +33,9 @@ function FooterSection() {
 
       <Footer>
         <LogoArea>
-          <LogoSvg width="310" height="68" />
+          
+          <Logo width={310} height={68} />
+
           <LogoSubHeading>
             Linkwarden is a fully self-hostable, open-source
             collaborative bookmark&nbsp;manager.
@@ -68,24 +81,28 @@ function FooterSection() {
                 alt="logo"
                 width={32}
                 height={32}
+                style={{ width: '48px', height: 'auto' }}
               />
               <Image
                 src="/docs/m.svg"
                 alt="logo"
                 width={32}
                 height={32}
+                style={{ width: '48px', height: 'auto' }}
               />
               <Image
                 src="/docs/x.svg"
                 alt="logo"
                 width={32}
                 height={32}
+                style={{ width: '48px', height: 'auto' }}
               />
               <Image
                 src="/docs/gitHub.svg"
                 alt="logo"
                 width={32}
                 height={32}
+                style={{ width: '48px', height: 'auto' }}
               />
             </IconsWrapper>
           </ContactArea>
@@ -104,6 +121,11 @@ const Wrapper = styled.footer`
   gap: 42px;
   max-width: 1300px;
   padding-bottom: 64px;
+  position: relative;
+`;
+
+const SVGImage = styled(Image)`
+  overflow: visible;
 `;
 
 const Heading = styled.h2`
@@ -149,7 +171,7 @@ const LogoArea = styled.div`
   gap: 24px;
 
   @media ${QUERIES.phoneAndSmaller} {
-   align-items: center;
+    align-items: center;
   }
 `;
 
@@ -170,7 +192,7 @@ const LogoSubHeading = styled.p`
   padding-left: 6px;
 
   @media ${QUERIES.phoneAndSmaller} {
-  text-align: center;
+    text-align: center;
   }
 `;
 
@@ -188,7 +210,7 @@ const LinksHeading = styled.h4`
   font-weight: ${WEIGHTS.medium};
 
   @media ${QUERIES.phoneAndSmaller} {
-   text-align: center;
+    text-align: center;
   }
 `;
 

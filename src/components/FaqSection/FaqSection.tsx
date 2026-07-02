@@ -10,13 +10,13 @@ function FaqSection() {
   return (
     <Wrapper id="faq">
       <Heading>Frequently Asked&nbsp;Questions</Heading>
-      
+
       <SVGImage
         src="/docs/magic-pattern-faq.svg"
         alt=""
         aria-hidden
         fill
-        priority
+        quality={75}
         style={{
           objectFit: 'none',
           objectPosition: 'calc(50% - 300px) calc(50% - 100px)', // left 100px, down 40px

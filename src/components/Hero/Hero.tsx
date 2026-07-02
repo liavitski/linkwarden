@@ -30,7 +30,7 @@ function Hero() {
         alt=""
         aria-hidden
         fill
-        priority
+        fetchPriority="high"
         style={{
           objectFit: 'none',
           objectPosition: 'center',
@@ -45,10 +45,9 @@ function Hero() {
           alt="Portfolio project preview"
           width={1287}
           height={810}
-          preload
           fetchPriority="high"
           sizes="100vw"
-          quality={50}
+          quality={75}
         />
       </ImageWrapper>
     </Wrapper>

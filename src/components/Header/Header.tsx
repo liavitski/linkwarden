@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import { motion } from 'motion/react';
 import { QUERIES, WEIGHTS, NAV_LINKS } from '@/utils/constants';
 import { Menu } from 'react-feather';
-import Image from 'next/image';
-import Logo from '../Logo';
+
 import Link from 'next/link';
 import Button from '../Button';
 import UnstyledButton from '../UnstyledButton';
 import VisuallyHidden from '../VisuallyHidden';
 import MobileMenu from '../MobileMenu';
+import Logo from '../Logo';
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -23,14 +23,9 @@ function Header() {
 
   return (
     <Wrapper>
-      {/* <Logo /> */}
-      <Image
-        src="/docs/logo.svg"
-        alt="Logo"
-        width={120}
-        height={40}
-        priority
-      />
+
+      <Logo width={200} height={41}/>
+
       <DesktopView>
         <Filler />
         <Navigation
