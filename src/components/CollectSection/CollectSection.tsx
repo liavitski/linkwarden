@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { QUERIES } from '@/utils/constants';
 import { WEIGHTS } from '@/utils/constants';
 import Image from 'next/image';
-import MagicPatternSvg2 from '@/utils/MagicPattern2';
 
 const headingVariants = {
   hidden: { opacity: 0 },
@@ -55,7 +54,20 @@ const listItem = {
 function CollectSection() {
   return (
     <Section id="features">
-      <MagicPatternSvg2 />
+      <SVGImage
+        src="/docs/magic-pattern-more.svg"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        style={{
+          objectFit: 'none',
+          objectPosition: 'calc(50% - 300px) calc(50% - 100px)', // left 100px, down 40px
+          pointerEvents: 'none',
+          zIndex: -1,
+        }}
+      />
+
       <CollectBtn>Collect & Organize</CollectBtn>
       <ContentWrapper>
         <PresentationBit>
@@ -115,11 +127,32 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1650px;
+  max-width: 1950px;
   margin: 0 auto;
   gap: 72px;
   margin-bottom: 23rem;
   padding-top: 3rem;
+`;
+
+const SVGImage = styled(Image)`
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0,
+      black 15rem,
+      black calc(100% - 15rem),
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      black 15rem,
+      black calc(100% - 15rem),
+      transparent 100%
+    );
+
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 `;
 
 const CollectBtn = styled.div`

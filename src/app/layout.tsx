@@ -8,7 +8,7 @@ import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 const title = APP_TITLE;
 const description =
   'Linkwarden is a fully self-hostable, open-source collaborative bookmark manager to collect, organize and archive webpages.';
-const url = 'https://linkwarden-self.vercel.app/';
+const url = 'https://linkwarden-self.vercel.app';
 
 export const metadata: Metadata = {
   title,
@@ -33,17 +33,11 @@ export default function RootLayout({
       style={DARK_TOKENS as React.CSSProperties}
       className={`${manrope.variable}`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-      </head>
       <body>
         <StyledComponentsRegistry>
-          <MaxWidthWrapper>{children}</MaxWidthWrapper>
+          <MaxWidthWrapper className={`${manrope.variable}`}>
+            {children}
+          </MaxWidthWrapper>
         </StyledComponentsRegistry>
         <GlobalStyles />
       </body>

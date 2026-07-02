@@ -13,7 +13,7 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Linkwarden',
-    url: 'https://linkwarden-self.vercel.app/',
+    url: 'https://linkwarden-self.vercel.app',
   };
 
   return (

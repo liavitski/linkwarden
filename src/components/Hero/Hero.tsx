@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import { QUERIES, WEIGHTS } from '@/utils/constants';
-import MagicPatternSvg from '@/utils/MagicPattern';
 import Star from '@/utils/StarSvg';
 import CtaButton from '../CtaButton';
 
@@ -26,7 +25,19 @@ function Hero() {
         </StarUsOnGitHubBtn>
       </ButtonsWrapper>
 
-      <MagicPatternSvg />
+      <SVGImage
+        src="/docs/magic-pattern-hero.svg"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        style={{
+          objectFit: 'none',
+          objectPosition: 'center',
+          pointerEvents: 'none',
+          zIndex: -1,
+        }}
+      />
 
       <ImageWrapper>
         <Image
@@ -51,7 +62,7 @@ const Wrapper = styled.section`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 80px;
-  max-width: 1290px;
+  max-width: 1490px;
   position: relative;
 `;
 
@@ -78,6 +89,57 @@ const SubHeading = styled.h2`
     text-align: left;
   }
 `;
+
+const SVGImage = styled(Image)`
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0,
+      black 32rem,
+      black calc(100% - 32rem),
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      black 32rem,
+      black calc(100% - 32rem),
+      transparent 100%
+    );
+
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+`;
+
+// const MagicPattern = styled.div`
+//   position: absolute;
+//   inset: 0;
+//   z-index: -1;
+//   pointer-events: none;
+
+//   background: url('/docs/magic-pattern-hero.svg') center / auto
+//     no-repeat;
+
+//   /* Equal fade on all 4 sides */
+//   -webkit-mask-image:
+//     linear-gradient(
+//       to right,
+//       transparent 0,
+//       black 32rem,
+//       black calc(100% - 32rem),
+//       transparent 100%
+//     ),
+//     linear-gradient(
+//       to bottom,
+//       transparent 0,
+//       black 32rem,
+//       black calc(100% - 32rem),
+//       transparent 100%
+//     );
+
+//   -webkit-mask-composite: source-in;
+//   mask-composite: intersect;
+// `;
 
 const ButtonsWrapper = styled.div`
   display: flex;

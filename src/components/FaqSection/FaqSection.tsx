@@ -4,13 +4,27 @@ import styled from 'styled-components';
 import { QUERIES, WEIGHTS } from '@/utils/constants';
 import { FAQ_DATA } from '@/utils/constants';
 import { ChevronDown } from 'react-feather';
-import FaqSvgPattern from './SvgPattern';
+import Image from 'next/image';
 
 function FaqSection() {
   return (
     <Wrapper id="faq">
       <Heading>Frequently Asked&nbsp;Questions</Heading>
-      <FaqSvgPattern />
+      
+      <SVGImage
+        src="/docs/magic-pattern-faq.svg"
+        alt=""
+        aria-hidden
+        fill
+        priority
+        style={{
+          objectFit: 'none',
+          objectPosition: 'calc(50% - 300px) calc(50% - 100px)', // left 100px, down 40px
+          pointerEvents: 'none',
+          zIndex: -1,
+        }}
+      />
+
       <Root type="single" collapsible>
         {FAQ_DATA.map(({ label, description }, index) => (
           <Item key={index} value={label}>
@@ -50,6 +64,10 @@ const Heading = styled.h2`
   line-height: 1.4;
   text-align: center;
   margin-bottom: 5rem;
+`;
+
+const SVGImage = styled(Image)`
+  overflow: visible;
 `;
 
 const Root = styled(Accordion.Root)`

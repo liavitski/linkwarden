@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { motion} from 'motion/react';
+import { motion } from 'motion/react';
 import { QUERIES, WEIGHTS, NAV_LINKS } from '@/utils/constants';
 import { Menu } from 'react-feather';
-
+import Image from 'next/image';
 import Logo from '../Logo';
 import Link from 'next/link';
 import Button from '../Button';
@@ -23,7 +23,14 @@ function Header() {
 
   return (
     <Wrapper>
-      <Logo />
+      {/* <Logo /> */}
+      <Image
+        src="/docs/logo.svg"
+        alt="Logo"
+        width={120}
+        height={40}
+        priority
+      />
       <DesktopView>
         <Filler />
         <Navigation
@@ -39,19 +46,17 @@ function Header() {
                     zIndex: hoveredNavItem === slug ? 1 : 2,
                   }}
                 >
-
-                    {hoveredNavItem === slug && (
-                      <AnimatedBorder
-                        layoutId={id}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 490,
-                          damping: 60,
-                          duration: 0.25,
-                        }}
-                   
-                      />
-                    )}
+                  {hoveredNavItem === slug && (
+                    <AnimatedBorder
+                      layoutId={id}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 490,
+                        damping: 60,
+                        duration: 0.25,
+                      }}
+                    />
+                  )}
 
                   <Link
                     href={href}
