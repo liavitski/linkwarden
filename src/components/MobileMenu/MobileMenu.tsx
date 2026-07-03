@@ -76,7 +76,7 @@ const slideIn = keyframes`
 const Overlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
-  background: hsl(220deg 5% 40% / 0.8);
+  background: rgba(255, 255, 255, 0.04);
   animation: ${fadeIn} 500ms;
 `;
 

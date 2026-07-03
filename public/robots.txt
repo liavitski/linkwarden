@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://linkwarden-self.vercel.app/sitemap.xml
