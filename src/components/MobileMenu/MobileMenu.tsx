@@ -55,15 +55,6 @@ function MobileMenu({ isOpen, onDismiss }: MobileMenuProps) {
   );
 }
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
 const slideIn = keyframes`
   from {
     transform: translateX(100%);
@@ -71,7 +62,16 @@ const slideIn = keyframes`
   to {
     transform: translateX(0%);
   }
-`;
+  `;
+
+const fadeIn = keyframes`
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  `;
 
 const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -117,31 +117,33 @@ const Navigation = styled.nav`
   button {
     align-self: center;
   }
-
-  a {
-    color: var(--color-text-secondary);
-    font-weight: ${WEIGHTS.normal};
-    font-size: 1.5rem;
-    text-decoration: none;
-    width: fit-content;
-    padding: 8px 16px;
-    border-radius: 8px;
-
-    &:hover {
-      color: var(--text-color);
-    }
-
-    &:focus {
-      outline-color: white;
-      color: var(--text-color);
-    }
-  }
 `;
 
 const LinksWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: ${WEIGHTS.normal};
+    font-size: 1.5rem;
+    padding: 8px 16px;
+    border-radius: 32px;
+    transition: color 200ms ease-out;
+
+    &:hover {
+      color: var(--text-color);
+      transition: color 400ms ease-in;
+    }
+
+    &:focus {
+      outline-color: var(--color-button-ghost-border);
+      color: var(--text-color);
+      transition: color 400ms ease-in;
+    }
+  }
 `;
 
 const Filler = styled.div`

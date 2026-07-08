@@ -23,8 +23,7 @@ function Header() {
 
   return (
     <Wrapper>
-
-      <Logo width={200} height={41}/>
+      <Logo width={200} height={41} />
 
       <DesktopView>
         <Filler />
@@ -123,14 +122,17 @@ const Navigation = styled.nav`
     font-size: 1.5rem;
     padding: 8px 16px;
     border-radius: 32px;
+    transition: color 200ms ease-out;
 
     &:hover {
       color: var(--text-color);
+      transition: color 400ms ease-in;
     }
 
     &:focus {
       outline-color: var(--color-button-ghost-border);
       color: var(--text-color);
+      transition: color 400ms ease-in;
     }
   }
 `;
