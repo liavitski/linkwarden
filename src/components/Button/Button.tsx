@@ -90,13 +90,14 @@ const GhostButton = styled(ButtonBase)`
   color: white;
   background-color: transparent;
   border: 2px solid var(--color-button-ghost-border);
+  transition: filter 600ms;
 
-  &:focus {
-    outline-color: white;
-  }
-
+  &:focus,
   &:hover {
+    outline-color: white;
     color: var(--color-text-hover);
+    transition: filter 250ms;
+    filter: brightness(130%);
   }
 `;
 

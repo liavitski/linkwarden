@@ -19,10 +19,14 @@ function Hero() {
       <ButtonsWrapper>
         <StartFreeTrialBtn>Start Free Trial</StartFreeTrialBtn>
 
-        <StarUsOnGitHubBtn>
+        <StarUsOnGitHubLink
+          href="https://github.com/linkwarden/linkwarden"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Star />
           <span>Star Us On GitHub</span>
-        </StarUsOnGitHubBtn>
+        </StarUsOnGitHubLink>
       </ButtonsWrapper>
 
       <SVGImage
@@ -152,30 +156,42 @@ const ButtonsWrapper = styled.div`
 
 export const StartFreeTrialBtn = styled(CtaButton)`
   background: linear-gradient(90deg, #673ab7 0%, #4b03cd 100%);
+  transition: filter 600ms;
 
-  &:hover {
-    background: linear-gradient(90deg, #683ab7e6 0%, #4a03cde0 100%);
-  }
-
+  &:hover,
   &:focus {
-    background: linear-gradient(90deg, #683ab7e6 0%, #4a03cdde 100%);
+    transition: filter 250ms;
+    filter: brightness(130%);
   }
 `;
 
-export const StarUsOnGitHubBtn = styled(CtaButton)`
+export const StarUsOnGitHubLink = styled.a`
   background: #00000031;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  display: flex;
+  text-decoration: none;
   gap: 8px;
   border: 2px solid var(--color-button-ghost-border);
+  transition: filter 600ms;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  width: 327px;
+  height: 74px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: ${WEIGHTS.medium};
+  font-size: 1.5rem;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.317);
 
-  &:hover {
-    background: #00000046;
-  }
-
+  &:hover,
   &:focus {
-    background: #00000047;
+    transition: filter 250ms;
+    filter: brightness(130%);
   }
 `;
 

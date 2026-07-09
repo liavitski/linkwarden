@@ -6,7 +6,8 @@ import Image from 'next/image';
 import Logo from '../Logo';
 
 import { QUERIES, WEIGHTS } from '@/utils/constants';
-import { StartFreeTrialBtn, StarUsOnGitHubBtn } from '../Hero';
+import { StartFreeTrialBtn, StarUsOnGitHubLink } from '../Hero';
+import Star from '@/utils/StarSvg';
 
 function FooterSection() {
   return (
@@ -28,12 +29,18 @@ function FooterSection() {
       <Heading>Start your bookmarking journey</Heading>
       <ButtonsWrapper>
         <StartFreeTrialBtn>Start Free Trial</StartFreeTrialBtn>
-        <StarUsOnGitHubBtn>Start Us On GitHub</StarUsOnGitHubBtn>
+        <StarUsOnGitHubLink
+          href="https://github.com/linkwarden/linkwarden"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Star />
+          <span>Star Us On GitHub</span>
+        </StarUsOnGitHubLink>
       </ButtonsWrapper>
 
       <Footer>
         <LogoArea>
-          
           <Logo width={310} height={68} />
 
           <LogoSubHeading>
@@ -234,6 +241,13 @@ const LinkItem = styled.li`
     text-decoration: none;
     font-size: 1.25rem;
     font-weight: ${WEIGHTS.normal};
+    transition: color 500ms;
+
+    &:hover,
+    &:focus {
+      color: var(--color-text-hover);
+      transition: color 250ms;
+    }
   }
 `;
 
