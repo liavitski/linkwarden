@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../Logo';
 
-import { QUERIES, WEIGHTS } from '@/utils/constants';
+import { QUERIES, WEIGHTS, socialLinks } from '@/utils/constants';
 import { StartFreeTrialBtn, StarUsOnGitHubLink } from '../Hero';
 import Star from '@/utils/StarSvg';
 
@@ -83,34 +83,19 @@ function FooterSection() {
               support@linkwarden.app
             </a>
             <IconsWrapper>
-              <Image
-                src="/docs/discord.svg"
-                alt="logo"
-                width={32}
-                height={32}
-                style={{ width: '48px', height: 'auto' }}
-              />
-              <Image
-                src="/docs/m.svg"
-                alt="logo"
-                width={32}
-                height={32}
-                style={{ width: '48px', height: 'auto' }}
-              />
-              <Image
-                src="/docs/x.svg"
-                alt="logo"
-                width={32}
-                height={32}
-                style={{ width: '48px', height: 'auto' }}
-              />
-              <Image
-                src="/docs/gitHub.svg"
-                alt="logo"
-                width={32}
-                height={32}
-                style={{ width: '48px', height: 'auto' }}
-              />
+              {socialLinks.map(
+                ({ name, href, target, rel, icon }) => (
+                  <a href={href} target={target} rel={rel} key={name}>
+                    <Image
+                      src={icon}
+                      alt="logo"
+                      width={32}
+                      height={32}
+                      style={{ width: '48px', height: 'auto' }}
+                    />
+                  </a>
+                )
+              )}
             </IconsWrapper>
           </ContactArea>
         </SecondColumn>
@@ -276,7 +261,7 @@ const ContactsHeading = styled.h4`
 
 const IconsWrapper = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 24px;
 `;
 
 export default FooterSection;

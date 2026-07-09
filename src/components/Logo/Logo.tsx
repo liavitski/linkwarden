@@ -30,6 +30,13 @@ const LinkWrapper = styled(Link)<{
   flex-shrink: 0;
   width: ${({ $width }) => ($width ? `${$width}px` : 'auto')};
   height: ${({ $height }) => ($height ? `${$height}px` : 'auto')};
+  transition: filter 600ms;
+
+  &:hover,
+  &:focus {
+    transition: filter 250ms;
+    filter: brightness(130%);
+  }
 `;
 
 export default Logo;

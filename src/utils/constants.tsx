@@ -162,3 +162,34 @@ export const NAV_LINKS: NAV_LINK[] = [
     href: '#blog',
   },
 ];
+
+export const socialLinks = [
+  {
+    name: 'X',
+    href: 'https://x.com',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: '/docs/x.svg',
+  },
+  {
+    name: 'Discord',
+    href: 'https://discord.com',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: '/docs/discord.svg',
+  },
+  {
+    name: 'Mastodon',
+    href: 'https://mastodon.social',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: '/docs/m.svg',
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: '/docs/gitHub.svg',
+  },
+];
