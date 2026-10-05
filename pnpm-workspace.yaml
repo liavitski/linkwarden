@@ -1,11 +1,13 @@
 # Single-package repo: declare the root as the only workspace package so
-# pnpm reads the build-script policy below instead of erroring.
+# pnpm reads the build-script policy below.
 packages:
   - .
 
-# sharp and unrs-resolver ship prebuilt native binaries as optional platform
-# dependencies (@img/sharp-*, unrs-resolver napi packages), so their install
-# scripts are not needed. Ignoring them keeps `pnpm install` deterministic.
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+# Dependency build scripts must be explicitly reviewed as of pnpm 10
+# (strictDepBuilds). Both of these ship prebuilt native binaries as optional
+# platform dependencies (@img/sharp-*, unrs-resolver napi packages), so their
+# install scripts are unnecessary: sharp loads with libvips 8.17.3 without them.
+# `false` = reviewed and denied; unlisted packages would fail the install.
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
