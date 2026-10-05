@@ -10,11 +10,11 @@ function Hero() {
     <Wrapper>
       <Heading>Webpage Management for Individuals and Teams</Heading>
       <SubHeading>
-        <DesctopText>
+        <DesktopText>
           Linkwarden is a fully self-hostable, open-source
           collaborative bookmark manager to collect, organize and
           archive webpages.
-        </DesctopText>
+        </DesktopText>
       </SubHeading>
       <ButtonsWrapper>
         <StartFreeTrialBtn href="#pricing">Start Free Trial</StartFreeTrialBtn>
@@ -113,36 +113,6 @@ const SVGImage = styled(Image)`
   mask-composite: intersect;
 `;
 
-// const MagicPattern = styled.div`
-//   position: absolute;
-//   inset: 0;
-//   z-index: -1;
-//   pointer-events: none;
-
-//   background: url('/docs/magic-pattern-hero.svg') center / auto
-//     no-repeat;
-
-//   /* Equal fade on all 4 sides */
-//   -webkit-mask-image:
-//     linear-gradient(
-//       to right,
-//       transparent 0,
-//       black 32rem,
-//       black calc(100% - 32rem),
-//       transparent 100%
-//     ),
-//     linear-gradient(
-//       to bottom,
-//       transparent 0,
-//       black 32rem,
-//       black calc(100% - 32rem),
-//       transparent 100%
-//     );
-
-//   -webkit-mask-composite: source-in;
-//   mask-composite: intersect;
-// `;
-
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 40px;
@@ -194,7 +164,7 @@ export const StarUsOnGitHubLink = styled.a`
   }
 `;
 
-const DesctopText = styled.span`
+const DesktopText = styled.span`
   font-weight: ${WEIGHTS.medium};
   font-size: clamp(1rem, 2vw, 1.5rem);
 `;

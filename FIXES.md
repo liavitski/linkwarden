@@ -18,13 +18,13 @@ Prioritized issues found during the best-practices review. Grouped by category; 
 
 ## P2 — Hygiene / cleanup
 
-- [ ] **Remove `new-component` dependency** — listed in `package.json`, imported nowhere. Accidental install.
-- [ ] **Fix/remove `pnpm-workspace.yaml`** — contains literal placeholder text (`set this to true or false`) and is unnecessary for a single-package repo.
-- [ ] **Delete commented-out `MagicPattern` block** in `Hero.tsx` (lines ~117–145).
-- [ ] **Rename `DesctopText` → `DesktopText`** in `Hero.tsx`.
-- [ ] **Replace `key={index}` with `key={label}`** in `FaqSection.tsx` (labels are unique).
-- [ ] **Add `metadataBase`** to `src/app/layout.tsx` metadata (required for absolute OG URLs).
-- [ ] **Remove unused `React` import** in `MaxWidthWrapper.tsx` (the one lint warning).
+- [x] **Remove `new-component` dependency** — removed via pnpm (it was imported nowhere). Note: `node_modules` was installed with pnpm 11 (store v11) while PATH `pnpm` is v9 — used `corepack pnpm@11` to modify deps.
+- [x] **Fix/remove `pnpm-workspace.yaml`** — deleted. It had no `packages` field (invalid for any pnpm version) and its `allowBuilds`/`ignoredBuiltDependencies` keys were leftover placeholders that don't exist in the installed pnpm versions. Single-package repo doesn't need it.
+- [x] **Delete commented-out `MagicPattern` block** in `Hero.tsx` — done.
+- [x] **Rename `DesctopText` → `DesktopText`** in `Hero.tsx` — done.
+- [x] **Replace `key={index}` with `key={label}`** in `FaqSection.tsx` — done (also dropped the unused `index` from the map callback).
+- [x] **Add `metadataBase`** to `src/app/layout.tsx` metadata — done.
+- [x] **Remove unused `React` import** in `MaxWidthWrapper.tsx` — done. `eslint` is now completely clean.
 
 ## P3 — Process
 

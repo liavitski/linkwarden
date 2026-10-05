@@ -26,8 +26,8 @@ function FaqSection() {
       />
 
       <Root type="single" collapsible>
-        {FAQ_DATA.map(({ label, description }, index) => (
-          <Item key={index} value={label}>
+        {FAQ_DATA.map(({ label, description }) => (
+          <Item key={label} value={label}>
             <Header>
               <Trigger>
                 <IconWrapper>

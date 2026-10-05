@@ -11,6 +11,7 @@ const description =
 const url = 'https://linkwarden-self.vercel.app';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(url),
   title,
   description,
   openGraph: {
