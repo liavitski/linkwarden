@@ -34,7 +34,6 @@ function Hero() {
         alt=""
         aria-hidden
         fill
-        fetchPriority="high"
         style={{
           objectFit: 'none',
           objectPosition: 'center',

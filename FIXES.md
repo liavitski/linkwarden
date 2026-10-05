@@ -10,11 +10,11 @@ Prioritized issues found during the best-practices review. Grouped by category; 
 
 ## P1 — Accessibility
 
-- [ ] **Plan toggle lacks ARIA semantics** — `src/components/PlanSection/PlanSection.tsx`: Monthly/Yearly is a stateful control with no `role="group"` + `aria-pressed`, or better, Radix `ToggleGroup`.
-- [ ] **Icon-only close button** — `MobileMenu.tsx` `CloseButton` renders only the `<X />` icon; add a `VisuallyHidden` label (e.g. "Close menu").
-- [ ] **`scroll-behavior: smooth` without a reduced-motion guard** — `GlobalStyles.tsx`: wrap in `@media (prefers-reduced-motion: no-preference)`.
-- [ ] **Focus outline color** — several components use `outline-color: white` (`Button`, `Header` hamburger, `MobileMenu`). Verify visibility on both dark and light surfaces; prefer a high-contrast token.
-- [ ] **Decorative SVG gets `fetchPriority="high"`** — `Hero.tsx` `SVGImage` (alt="", aria-hidden) competes with the hero photo for bandwidth; remove the priority hint.
+- [x] **Plan toggle lacked ARIA semantics** — `PlanSection.tsx`: container now has `role="group" aria-label="Billing period"` and each button has `aria-pressed`.
+- [x] **Icon-only close button** — `MobileMenu.tsx`: added `VisuallyHidden` "Close menu" label.
+- [x] **`scroll-behavior: smooth` without a reduced-motion guard** — `GlobalStyles.tsx`: now gated behind `@media (prefers-reduced-motion: no-preference)`.
+- [x] **Focus outline color** — verified: the site is dark-only (`#0F1115` background), so `outline-color: white` is ~21:1 contrast everywhere. No change needed; revisit if a light surface is ever introduced.
+- [x] **Decorative SVG gets `fetchPriority="high"`** — `Hero.tsx`: removed the priority hint from the masked decorative SVG; hero photo keeps it.
 
 ## P2 — Hygiene / cleanup
 

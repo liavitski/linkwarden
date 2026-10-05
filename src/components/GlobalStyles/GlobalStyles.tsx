@@ -15,14 +15,19 @@ const GlobalStyles = createGlobalStyle`
   margin: 0;
 }
 html {
-  scrollbar-gutter: stable; 
-  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   /*
     Create a stacking context, without a z-index.
     This ensures that all portal content (modals and tooltips) will
     float above the app.
   */
   isolation: isolate;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 body {
   line-height: 1.5;

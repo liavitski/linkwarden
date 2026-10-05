@@ -33,6 +33,7 @@ function MobileMenu({ isOpen, onDismiss }: MobileMenuProps) {
             <Navigation>
               <CloseButton onClick={onDismiss}>
                 <X size={32} />
+                <VisuallyHidden>Close menu</VisuallyHidden>
               </CloseButton>
               <Filler />
               <LinksWrapper>

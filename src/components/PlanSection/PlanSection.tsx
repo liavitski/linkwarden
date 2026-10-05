@@ -23,7 +23,7 @@ function PlanSection() {
     <Wrapper id="pricing">
       <Header>
         <MaxWidthWrapper>
-          <ButtonSelectionWrapper>
+          <ButtonSelectionWrapper role="group" aria-label="Billing period">
             <Tag
               initial={{ x: 30, y: -20, rotate: 25 }}
               animate={
@@ -43,7 +43,10 @@ function PlanSection() {
               25% Off
             </Tag>
 
-            <Button onClick={() => setPlanType('monthly')}>
+            <Button
+              onClick={() => setPlanType('monthly')}
+              aria-pressed={planType === 'monthly'}
+            >
               {planType === 'monthly' && (
                 <ActiveBg
                   layoutId="active-bg"
@@ -53,7 +56,10 @@ function PlanSection() {
               <span>Monthly</span>
             </Button>
 
-            <Button onClick={() => setPlanType('yearly')}>
+            <Button
+              onClick={() => setPlanType('yearly')}
+              aria-pressed={planType === 'yearly'}
+            >
               {planType === 'yearly' && (
                 <ActiveBg
                   layoutId="active-bg"
