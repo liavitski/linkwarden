@@ -1,0 +1,11 @@
+# Single-package repo: declare the root as the only workspace package so
+# pnpm reads the build-script policy below instead of erroring.
+packages:
+  - .
+
+# sharp and unrs-resolver ship prebuilt native binaries as optional platform
+# dependencies (@img/sharp-*, unrs-resolver napi packages), so their install
+# scripts are not needed. Ignoring them keeps `pnpm install` deterministic.
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
