@@ -2,13 +2,21 @@ import { WEIGHTS } from '@/utils/constants';
 import * as React from 'react';
 import styled from 'styled-components';
 
-function CtaButton({
-  children,
-  className,
-}: {
+type CtaButtonProps = {
   children: React.ReactNode;
   className?: string;
-}) {
+  href?: string;
+};
+
+function CtaButton({ children, className, href }: CtaButtonProps) {
+  if (href) {
+    return (
+      <Btn as="a" href={href} className={className}>
+        {children}
+      </Btn>
+    );
+  }
+
   return <Btn className={className}>{children}</Btn>;
 }
 
@@ -18,6 +26,7 @@ const Btn = styled.button`
   cursor: pointer;
   font: inherit;
   color: inherit;
+  text-decoration: none;
   width: 327px;
   height: 74px;
   border-radius: 36px;
@@ -28,7 +37,6 @@ const Btn = styled.button`
   font-size: 1.5rem;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.317);
 
-  
   &:focus {
     outline-offset: 2px;
   }

@@ -28,25 +28,17 @@ const SIZES: Record<SizeKey, SizeConfig> = {
   },
 };
 
+type ButtonVariant = 'fill' | 'outline' | 'ghost';
+
 type ButtonProps = {
-  variant: string;
+  variant: ButtonVariant;
   size: SizeKey;
   children: React.ReactNode;
 };
 
 const Button = ({ variant, size, children }: ButtonProps) => {
   const styles = SIZES[size];
-
-  let Component;
-  if (variant === 'fill') {
-    Component = FillButton;
-  } else if (variant === 'outline') {
-    Component = OutlineButton;
-  } else if (variant === 'ghost') {
-    Component = GhostButton;
-  } else {
-    throw new Error(`Unrecognized Button variant: ${variant}`);
-  }
+  const Component = VARIANT_BUTTONS[variant];
 
   return <Component style={styles}>{children}</Component>;
 };
@@ -70,20 +62,20 @@ const ButtonBase = styled.button`
 
 const FillButton = styled(ButtonBase)`
   background-color: white;
-  color: white;
+  color: var(--color-background);
 
   &:hover {
-    background-color: white;
+    filter: brightness(90%);
   }
 `;
 
 const OutlineButton = styled(ButtonBase)`
-  background-color: white;
-  color: white;
+  background-color: transparent;
+  color: var(--color-text);
   border: 2px solid currentColor;
 
   &:hover {
-    background-color: white;
+    background-color: rgb(255 255 255 / 8%);
   }
 `;
 const GhostButton = styled(ButtonBase)`
@@ -100,5 +92,11 @@ const GhostButton = styled(ButtonBase)`
     filter: brightness(130%);
   }
 `;
+
+const VARIANT_BUTTONS = {
+  fill: FillButton,
+  outline: OutlineButton,
+  ghost: GhostButton,
+} as const;
 
 export default Button;

@@ -17,7 +17,7 @@ function Hero() {
         </DesctopText>
       </SubHeading>
       <ButtonsWrapper>
-        <StartFreeTrialBtn>Start Free Trial</StartFreeTrialBtn>
+        <StartFreeTrialBtn href="#pricing">Start Free Trial</StartFreeTrialBtn>
 
         <StarUsOnGitHubLink
           href="https://github.com/linkwarden/linkwarden"
