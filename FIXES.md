@@ -28,9 +28,9 @@ Prioritized issues found during the best-practices review. Grouped by category; 
 
 ## P3 — Process
 
-- [ ] **Add tests** — no test runner at all. Start with vitest + React Testing Library for: Button variant mapping (incl. the unknown-variant throw), PlanSection toggle state, MobileMenu open/close.
-- [ ] **Add CI** — no `.github/`. Minimum gate: `pnpm lint`, `tsc --noEmit`, `next build` on PRs.
-- [ ] **FAQ body copy is lorem ipsum** — fine as a placeholder, but replace before any real use.
+- [x] **Add tests** — installed vitest + Testing Library (jsdom). Config in `vitest.config.mts` / `vitest.setup.ts`; 10 tests across `Button`, `PlanSection` (billing toggle + price switch), and `MobileMenu` (dialog, links, close button). Scripts: `pnpm test`, `pnpm test:watch`.
+- [x] **Add CI** — `.github/workflows/ci.yml`: pnpm 11 + Node 22, runs lint → typecheck → test → build on pushes to `main` and all PRs.
+- [ ] **FAQ body copy is lorem ipsum** — fine as a placeholder, but replace before any real use. (Content decision — not a code fix.)
 
 ## Notes (non-blocking)
 
